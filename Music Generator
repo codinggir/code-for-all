@@ -1,0 +1,27 @@
+from pydub import AudioSegment
+from pydub.generators import Sine
+
+def generate_tone(frequency, duration):
+    return Sine(frequency).to_audio_segment(duration=duration)
+
+def save_melody(melody, filename):
+    combined = sum(melody)
+    combined.export(filename, format="wav")
+
+def main():
+    # Define the melody (frequency in Hz and duration in milliseconds)
+    melody = [
+        generate_tone(440, 500),  # A4
+        generate_tone(494, 500),  # B4
+        generate_tone(523, 500),  # C5
+        generate_tone(587, 500),  # D5
+        generate_tone(659, 500),  # E5
+        generate_tone(698, 500),  # F5
+        generate_tone(784, 500)   # G5
+    ]
+
+    # Save the melody to a file
+    save_melody(melody, "melody.wav")
+
+if __name__ == "__main__":
+    main()
