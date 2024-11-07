@@ -1,0 +1,8 @@
+def is_palindrome(sequence):
+    cleaned_sequence = ''.join(char.lower() for char in sequence if char.isalnum())
+    return cleaned_sequence == cleaned_sequence[::-1]
+sequence = input("Enter a sequence: ")
+if is_palindrome(sequence):
+    print(f"'{sequence}' is a palindrome!")
+else:
+    print(f"'{sequence}' is not a palindrome.")
