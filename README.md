@@ -22,4 +22,4 @@ To get started with these scripts, you'll need to have Python installed on your 
 Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-code-for-all/simple-python-codes.git
+git clone https://github.com/your-codingir/.git
