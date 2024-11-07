@@ -1,0 +1,62 @@
+def generate_file_organizer_script():
+    script = """
+import os
+import shutil
+
+def organize_files(directory):
+    for filename in os.listdir(directory):
+        if os.path.isfile(os.path.join(directory, filename)):
+            file_extension = filename.split('.')[-1]
+            folder = os.path.join(directory, file_extension)
+            if not os.path.exists(folder):
+                os.makedirs(folder)
+            shutil.move(os.path.join(directory, filename), os.path.join(folder, filename))
+
+if __name__ == "__main__":
+    directory = input("Enter the directory to organize: ")
+    organize_files(directory)
+"""
+    return script
+
+def generate_web_scraper_script():
+    script = """
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_website(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    return soup.prettify()
+
+if __name__ == "__main__":
+    url = input("Enter the URL to scrape: ")
+    print(scrape_website(url))
+"""
+    return script
+
+def generate_email_sender_script():
+    script = """
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def send_email(sender_email, receiver_email, subject, body, smtp_server, port, login, password):
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(body, 'plain'))
+
+    with smtplib.SMTP(smtp_server, port) as server:
+        server.starttls()
+        server.login(login, password)
+        server.sendmail(sender_email, receiver_email, msg.as_string())
+
+if __name__ == "__main__":
+    sender_email = input("Enter your email: ")
+    receiver_email = input("Enter receiver's email: ")
+    subject = input("Enter the subject: ")
+    body = input("Enter the email body: ")
+    smtp_server = input("Enter the SMTP server: ")
+    port = int(input("Enter the port
