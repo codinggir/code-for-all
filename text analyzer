@@ -1,0 +1,25 @@
+import string
+
+def count_words(text):
+    words = text.split()
+    return len(words)
+
+def count_characters(text):
+    return len(text)
+
+def count_sentences(text):
+    sentences = text.split('.')
+    return len(sentences) - 1
+
+def text_analyzer(text):
+    num_words = count_words(text)
+    num_characters = count_characters(text)
+    num_sentences = count_sentences(text)
+
+    print(f"Number of words: {num_words}")
+    print(f"Number of characters: {num_characters}")
+    print(f"Number of sentences: {num_sentences}")
+
+if __name__ == "__main__":
+    text = input("Enter the text to analyze: ")
+    text_analyzer(text)
